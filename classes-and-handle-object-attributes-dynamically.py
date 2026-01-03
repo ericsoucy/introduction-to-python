@@ -1,5 +1,5 @@
 # Python gives you four handy built-in functions to dynamically work with object attributes. They are getattr(), setattr(), hasattr(), and delattr().
-# getattr(object, attribute_name, default_value) 
+# getattr(object, attribute_name, default_value)
 
 class Person:
     def __init__(self, name, age):
