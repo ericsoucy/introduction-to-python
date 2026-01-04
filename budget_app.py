@@ -1,3 +1,5 @@
+# In this lab, you will build a simple budget app that tracks spending in different categories and can show the relative spending percentage on a graph.
+
 import math
 
 class Category:
@@ -8,7 +10,7 @@ class Category:
     def __str__(self):
         # 1. Title line: centered name in 30 '*'
         title = f"{self.name:*^30}\n"
-        
+
         # 2. Ledger entries
         items = ""
         for item in self.ledger:
@@ -16,13 +18,13 @@ class Category:
             desc = item["description"][:23]
             # Format amount to 2 decimal places, max 7 chars total
             amt = f"{item['amount']:.2f}"
-            
+
             # Left align description (23) and right align amount (7)
             items += f"{desc:<23}{amt:>7}\n"
-            
+
         # 3. Total line
         total = f"Total: {self.get_balance():.2f}"
-        
+
         return title + items + total
     def deposit(self, amount, description=""):
         """Add a positive amount and description to the ledger."""
@@ -72,7 +74,7 @@ def create_spend_chart(categories):
         spent_amounts.append(abs(spent))
 
     total_spent = sum(spent_amounts)
-    
+
     # Calculate percentages rounded down to the nearest 10
     # Formula: (Spent / Total) * 100, then floor to nearest 10
     percentages = []
@@ -99,7 +101,7 @@ def create_spend_chart(categories):
     # 5. Build the vertical names
     names = [c.name for c in categories]
     max_len = max(len(name) for name in names)
-    
+
     for i in range(max_len):
         res += "     "
         for name in names:
@@ -111,3 +113,17 @@ def create_spend_chart(categories):
             res += "\n"
 
     return res
+food = Category('Food')
+food.deposit(1000, 'deposit')
+food.withdraw(10.15, 'groceries')
+food.withdraw(15.89, 'restaurant and more food for dessert')
+clothing = Category('Clothing')
+food.transfer(50, clothing)
+print(food)
+# *************Food*************
+# initial deposit        1000.00
+# groceries               -10.15
+# restaurant and more foo -15.89
+# Transfer to Clothing    -50.00
+# Total: 923.96
+print(create_spend_chart([food, clothing]))
