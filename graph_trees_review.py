@@ -1,0 +1,173 @@
+# Graphs Overview
+# A graph is a set of nodes (vertices) connected by edges (connections). Each node can connect to multiple other nodes, forming a network. The different types of graphs include:
+
+# Directed: edges have a direction (from one node to another), often represented with straight lines and arrows.
+# Undirected: edges have no direction, represented with simple lines.
+# Vertex: each node is associated to a label or identifier.
+# Cyclic: contains cycles (a path that starts and ends at the same node).
+# Acyclic (DAG): does not contain cycles.
+# Edge labeled: each edge has a label usually drawn next to corresponding edge.
+# Weighted: edges have weights (values) associated with them, that can be used to perform arithmetic operations.
+# Disconnected: contains two or more nodes that are not connected by any edges.
+# Graphs are used in various applications such as maps, networks, recommendation systems, dependency resolution.
+
+# Graph Traversals
+# This involves visiting all the nodes in a graph. The two main algorithms are:
+
+# Breadth-First Search (BFS)
+
+# Uses a queue.
+# Explores level by level.
+# Finds shortest path in unweighted graphs.
+# Depth-First Search (DFS)
+
+# Uses a stack (or recursion).
+# Explores a branch fully before backtracking.
+# Useful for cycle detection and path finding.
+# Graph Representations
+# Graphs can be represented in two main ways:
+
+# Adjacency List
+
+# Each node has a list of its neighbors.
+# Space efficient for sparse graphs.
+# Easy to iterate over neighbors.
+
+# Adjacency Matrix
+
+# A 2D array where rows and columns represent nodes.
+# Space intensive for large graphs.
+# Fast to check if an edge exists between two nodes.
+# Trees
+# A tree is a special type of graph that is acyclic and connected. Key properties include:
+
+# They have no loops or cycles (paths where the start and end nodes are the same).
+# They must be connected (every node can be reached from every other node).
+# Common types of trees
+# The most common types of trees are:
+
+# Binary Trees
+
+# Each node has at most two children, a left and a right child.
+# Binary Search Trees (BST)
+
+# A binary tree in which every left child is less than its parent, and every right child is greater than its parent.
+# Tries
+# Also known as prefix trees, they are used to store sets of strings, where each node represents a character.
+
+# Shared prefixes are stored only once, making them efficient for tasks like autocomplete and spell checking.
+
+# Search and insertion operations have a time complexity of O(L), where L is the length of the string.
+
+# Priority Queues
+# A priority queue is an abstract data type where each element has a priority.
+
+# Queues and stacks consider only the order of insertion, while priority queues consider the priority of elements.
+
+# Standard queues follow FIFO (First In First Out) and stacks follow LIFO (Last In First Out). However, in a priority queue, elements with higher priority are served before those with lower priority, regardless of their insertion order.
+
+# Heaps
+# It's a specialized tree-based data structure with a very specific property called the heap property.
+
+# The heap property determines the relationship between parent and child nodes. There are two types of heaps:
+
+# Max-Heap
+
+# The value of each parent node is greater than or equal to the values of its children.
+# The largest element is at the root.
+# Min-Heap
+
+# The value of each parent node is less than or equal to the values of its children.
+# The smallest element is at the root.
+
+# heap
+import heapq
+
+# Create empty heap
+my_heap = []
+
+# Insert elements
+heapq.heappush(my_heap, 9)
+heapq.heappush(my_heap, 3)
+heapq.heappush(my_heap, 5)
+
+# Remove smallest element
+print(heapq.heappop(my_heap))  # 3
+
+# Push + Pop in one step
+print(heapq.heappushpop(my_heap, 2)) # 2
+
+# Transform list into heap
+nums = [5, 7, 3, 1]
+heapq.heapify(nums)
+
+# Using Priorities
+my_heap = []
+heapq.heappush(my_heap, (3, "A"))
+heapq.heappush(my_heap, (2, "B"))
+heapq.heappush(my_heap, (1, "C"))
+
+# Removes lowest number = highest priority
+print(heapq.heappop(my_heap))  # (1, "C")
+
+
+# What is a graph?
+# A data structure used to represent the connections or relationships between objects or entities.
+
+ 
+# Which of the following is NOT a typical scenario that can be represented using a graph?
+# virtual private networks
+
+# Which of the following terms describes an object or entity that is part of the network depicted by a graph?
+# node
+
+# Which of the following terms describes the connections between nodes in a graph?
+# Edges
+
+# What is an undirected graph?
+# A graph where the edges don't have a specific direction.
+
+# Which of the following refers to a graph in which each node is associated with a label or identifier in addition to its data?
+# Vertex labeled graph
+
+# Which of the following refers to a directed graph with at least one cycle?
+# Cyclic graph
+
+# What is a weighted graph?
+# A specific type of edge labeled graph in which the labels on the edges represent values that can be compared and used to perform arithmetic operations.
+
+# What is a directed acyclic graph?
+# A directed graph with no cycles.
+
+# Which of the following refers to a graph with two or more groups of nodes that are not connected by any edges?
+# Disconnected graph
+
+# What is the Breadth-first search algorithm?
+# An algorithm that visits all neighboring nodes before moving to the next level in the graph.
+
+# Which of the following algorithms will follow each branch as deep as possible before it backtracks?
+# Depth-First Search
+
+# Which of the following terms represents a two-dimensional list in which the rows and columns represent the graph's vertices?
+# Adjacency matrix
+
+# Which of the following terms represents an array or dictionary that stores all the neighbors of each node?
+# Adjacency list
+
+# What must be true for a graph to be classified as a tree?
+# It cannot have loops or cycles.
+
+# Which of the following is a type of tree in which each node can have at most two child nodes?
+# Binary tree
+
+# What is a Trie?
+# A tree data structure used to store a set of strings.
+
+# How does the priority queue data structure differ from a regular queue data structure?
+# A priority queue processes elements based on their priority.
+
+# What are the two types of heaps?
+# Max-heap and Min-heap
+
+# What are the average and worst case time complexities for inserting and extracting the minimum or maximum value from a heap?
+# O(log n)
